@@ -20,22 +20,25 @@ window.onload= function(){
 //talkIDに応じてBobの発する言葉を決める関数
 function bob(){
     
-    var whatBobSays =LOCAL_BOB;
+    const whatBobSays =LOCAL_BOB;
     
     for(let talkID=0; talkID<=5; talkID++){
+
+        const whatBobSays = LOCAL_FOR;
 
         switch(talkID){//if文だった場合、(talkID === 0)
             case 0: //switch文の`case`の中で、ID2の文字列が格納された変数`whatBobSays`を宣言して使用する
             {
-                let whatBobSays = LOCAL_SWITCH
-                console.log(whatBobSays);
+                const whatBobSays = LOCAL_SWITCH
+                // console.log(whatBobSays);
                 setDialog(whatBobSays, talkID)
             }
             break;
 
             case 1: //ID1の文字列が既に格納され関数`bob()`のローカル変数`whatBobSays`を使用する
-                console.log(whatBobSays);
-                setDialog(whatBobSays, talkID);
+                const id1 = LOCAL_BOB;
+                console.log(id1);
+                setDialog(id1, talkID);
             break;
 
             case 2: //ID2の文字列が既に格納されたグローバル変数`whatBobSays`を使用する
@@ -47,8 +50,8 @@ function bob(){
                 {
                     const whatBobSays =  function()
                     {
-                        const  idThree = LOCAL_NEST_FUNCTION;
-                        return idThree;
+                        const  whatBobSays = LOCAL_NEST_FUNCTION;
+                        return whatBobSays;
                     };
             
                     console.log(whatBobSays());
@@ -56,25 +59,23 @@ function bob(){
                 }
             break;
 
-            case 4: //関数`bob()`内のfor文のブロックスコープにある、ID4の文字列が格納された変数`whatBobSays`から取得する
-                whatBobSays = LOCAL_FOR; //ローカル変数(定数)    
+            case 4: //関数`bob()`内のfor文のブロックスコープにある、ID4の文字列が格納された変数`whatBobSays`から取得する    
                 console.log(whatBobSays);
                 setDialog(whatBobSays, talkID);
             break;
 
             default: //オブジェクトを作成し、ID5の文字列を返すオブジェクトメソッド`whatBobSays`を使用する
                 {
-                    let whatBobSays = 
+                    const whatBobSays = 
                         {
-                            name: "ID5",
-                            func: function() 
+                            name: LOCAL_OBJ,
+                            whatBobSays: function() 
                             {
-                                this.name = LOCAL_OBJ;
                                 return this.name;
                             }
                         };
-                    console.log(whatBobSays.func());
-                    setDialog(whatBobSays.func(),talkID);
+                    console.log(whatBobSays.whatBobSays());
+                    setDialog(whatBobSays.whatBobSays(),talkID);
                 }
             break;
         }
